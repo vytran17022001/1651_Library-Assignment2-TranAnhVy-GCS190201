@@ -10,7 +10,6 @@ namespace _1651_Library
         {
             int option = 0;
             string name;
-            string author;
             while(option != -1)
             {
                 Console.WriteLine("1.Add Book");
