@@ -10,7 +10,6 @@ namespace _1651_Library
         {
             int option = 0;
             string name;
-            string author;
             while(option != -1)
             {
                 Console.WriteLine("1.Add Book");
@@ -259,106 +258,6 @@ namespace _1651_Library
 
         }
 
-        static List<Student> studentList = new List<Student>();
-        public static void ManageStudent()
-        {
-            int option = 0;
-            string name;
-            while (option != -1)
-            {
-                Console.WriteLine("1.Add Student");
-                Console.WriteLine("2.Delete Student");
-                Console.WriteLine("3.Search Student");
-                Console.WriteLine("4.Show all Student");
-                Console.WriteLine("5.Back");
-                Console.Write("Enter Number: ");
-                option = Convert.ToInt32(Console.ReadLine());
-                switch (option)
-                {
-                    case 1:
-                        Console.Clear();
-                        Student newStudent = new Student();
-                        Console.Write("Input Student Name: ");
-                        name = Console.ReadLine();
-                        newStudent.setName(name);
-
-                        Console.Write("Input Student Age: ");
-                        newStudent.setAge(Convert.ToInt32(Console.ReadLine()));
-
-                        Console.Write("Input Student Gender: ");
-                        newStudent.setGender(Console.ReadLine());
-
-                        Console.Write("Input Student Phone Number: ");
-                        newStudent.setPhone(Console.ReadLine());
-
-                        Console.Write("Input Student Class: ");
-                        newStudent.setStudentClass(Console.ReadLine());
-
-                       newStudent.setId(studentList.Count + 1);
-
-                        Console.Clear();
-                        studentList.Add(newStudent);
-                        Console.WriteLine("!!Add Successfully!!");
-                        break;
-                    case 2:
-                        Console.Clear();
-                        Console.Write("Input Student Name: ");
-                        name = Console.ReadLine();
-                        bool flag = false;
-
-                        for (int i = 0; i < studentList.Count; i++)
-                        {
-                            if (staffList[i].getName().ToLower() == name.ToLower())
-                            {
-                                studentList.RemoveAt(i);
-                                flag = true;
-                                Console.Clear();
-                                Console.WriteLine("!!Delete Successfully!!");
-                                break;
-                            }
-                        }
-                        if (!flag)
-                        {
-                            Console.WriteLine("This staff does not exit");
-                        }
-                        break;
-                    case 3:
-                        Console.Clear();
-                        Console.Write("Input Student Name: ");
-                        name = Console.ReadLine();
-                        bool flagA = false;
-
-                        for (int i = 0; i < studentList.Count; i++)
-                        {
-                            if (studentList[i].getName().ToLower() == name.ToLower())
-                            {
-                                Console.Clear();
-                                Console.WriteLine("~~~~Search Result~~~~");
-                                studentList[i].ShowStudentInfo();
-                                flagA = true;
-                                break;
-                            }
-                        }
-                        if (!flagA)
-                        {
-                            Console.WriteLine("This");
-                        }
-                        break;
-                    case 4:
-                        Console.Clear();
-                        Console.WriteLine("~~~~All Student~~~~");
-                        foreach (Student student in studentList)
-                        {
-                            student.ShowStudentInfo();
-                        }
-                        break;
-                    case 5:
-                        option = -1;
-                        break;
-                }
-            }
-
-        }
         static void Main(string[] args)
         {
             int k = 0;
@@ -366,8 +265,7 @@ namespace _1651_Library
             {
                 Console.WriteLine("1.Manage Book");
                 Console.WriteLine("2.Manage Staff");
-                Console.WriteLine("3.Manage Student card");
-                Console.WriteLine("4.Exit");
+                Console.WriteLine("3.Exit");
                 Console.WriteLine("Enter Number: ");
                 k = Convert.ToInt32(Console.ReadLine());
                 switch (k)
@@ -379,9 +277,6 @@ namespace _1651_Library
                         ManageStaff();
                         break;
                     case 3:
-                        ManageStudent();
-                        break;
-                    case 4:
                         k = -1;
                         break;
                     default:
